@@ -11,7 +11,7 @@ namespace CryptoScanner.Data
             this.context = context;
         }
 
-        public IEnumerable<CryptoModel> AddProduct(CryptoModel currency)
+        public IEnumerable<CryptoModel> AddCurrency(CryptoModel currency)
         {
             context.Currency.Add(currency);
 
@@ -29,6 +29,17 @@ namespace CryptoScanner.Data
         {
             return context.Currency.ToList();
         }
+
+        // Helper function för att sortera currencies
+        //public IEnumerable<CryptoModel> SortCurrency(string sortSpecificCurrency)
+        //{
+        //    if (sortSpecificCurrency == "asc")
+        //    {
+        //        return context.Currency.ToList().OrderBy(name => name.Name);
+        //    }
+        //    return context.Currency.ToList().OrderByDescending(name => name.Name);
+        //}
+
 
     }
 }
