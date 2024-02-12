@@ -1,4 +1,4 @@
-using CryptoScanner.App;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CryptoScanner.UI.Pages;
@@ -21,11 +21,7 @@ public class IndexModel : PageModel
 
     public void OnPost() // async Task senare
     {
-        public void OnGet()
-        {
-            ApiCaller apiCaller = new ApiCaller();
-            apiCaller.MakeCall("01coin");
-        }
+
     }
 
 }

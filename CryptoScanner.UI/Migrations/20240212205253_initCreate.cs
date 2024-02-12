@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace CryptoScanner.Data.Migrations
+namespace CryptoScanner.UI.Migrations
 {
     /// <inheritdoc />
     public partial class initCreate : Migration
@@ -18,7 +18,7 @@ namespace CryptoScanner.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ApiId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Price = table.Column<double>(type: "float", nullable: false)
+                    Price = table.Column<decimal>(type: "decimal(18,2)", precision: 18, scale: 2, nullable: true)
                 },
                 constraints: table =>
                 {
