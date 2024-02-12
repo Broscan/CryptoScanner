@@ -11,17 +11,5 @@ namespace CryptoScanner.Data
         {
 
         }
-
-
-
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            base.OnConfiguring(optionsBuilder);
-
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=CryptoScannerDb;Trusted_Connection=True");
-        }
-
-
     }
 }
