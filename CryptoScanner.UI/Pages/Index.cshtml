@@ -4,7 +4,32 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <h1>Forex Exchange 2.0</h1>
+
+</div>
+
+
+<div>
+    <form method="post">
+        <input type="text" asp-for="CurrencyName" placeholder="Currency name" class="round" />
+        <input type="submit" value="Search" class="round search-button" />
+    </form>
+</div>
+
+<form method="get">
+    <label class="anotherColor" for="sortOrder">Sort Order:</label>
+    <select id="sortOrder" name="sortOrder" class="round">
+        <option value="asc">Low to High</option>
+        <option value="desc">High to Low</option>
+    </select>
+    <button type="submit" asp-page-handler="Sort" class="round sort-button">Sort</button>
+</form>
+
+<br />
+
+<div>
+    <form method="post">
+        <button type="submit" asp-page-handler="AddCurrency" class="round add-button">Add Currency</button>
+    </form>
 </div>
