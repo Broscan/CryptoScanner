@@ -8,6 +8,6 @@ namespace CryptoScanner.Data.Models
         public int Id { get; set; }
         public string ApiId { get; set; } = null!;
         public string Name { get; set; } = null!;
-        public decimal? Price { get; set; }
+        public double Price { get; set; }
     }
 }
