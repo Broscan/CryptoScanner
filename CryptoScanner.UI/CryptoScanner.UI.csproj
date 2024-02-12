@@ -7,6 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="microsoft.entityframeworkcore.design" Version="8.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="microsoft.entityframeworkcore.sqlserver" Version="8.0.1" />
+    <PackageReference Include="microsoft.entityframeworkcore.tools" Version="8.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="newtonsoft.json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CryptoScanner.App\CryptoScanner.App.csproj" />
   </ItemGroup>
 

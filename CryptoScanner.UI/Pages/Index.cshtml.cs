@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+using CryptoScanner.App;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CryptoScanner.UI.Pages
@@ -14,7 +14,8 @@ namespace CryptoScanner.UI.Pages
 
         public void OnGet()
         {
-
+            ApiCaller apiCaller = new ApiCaller();
+            apiCaller.MakeCall("test");
         }
     }
 }
