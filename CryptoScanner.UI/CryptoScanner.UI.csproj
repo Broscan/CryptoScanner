@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CryptoScanner.App\CryptoScanner.App.csproj" />
+  </ItemGroup>
+
 </Project>
