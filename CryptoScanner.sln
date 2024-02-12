@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34309.116
@@ -8,6 +8,14 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoScanner.Data", "CryptoScanner.Data\CryptoScanner.Data.csproj", "{03C3A0AD-0913-42BF-BF03-E2FE548713EC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoScanner.App", "CryptoScanner.App\CryptoScanner.App.csproj", "{4A44EB13-684A-4A40-B81F-0071E639E8FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoScanner.Data", "CryptoScanner.Data\CryptoScanner.Data.csproj", "{CEA17AF9-CC8D-4ED2-96E3-A94201EF61A0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoScanner.App", "CryptoScanner.App\CryptoScanner.App.csproj", "{AFBED62B-8CC6-4A10-97C3-AD6BBD376B77}"
+
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoScanner.App", "CryptoScanner.App\CryptoScanner.App.csproj", "{274E29E4-F6A0-4EC9-B810-F35774540DEF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoScanner.Data", "CryptoScanner.Data\CryptoScanner.Data.csproj", "{839104EB-F798-4A60-AE9A-27389557A406}"
+
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +35,22 @@ Global
 		{4A44EB13-684A-4A40-B81F-0071E639E8FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A44EB13-684A-4A40-B81F-0071E639E8FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A44EB13-684A-4A40-B81F-0071E639E8FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEA17AF9-CC8D-4ED2-96E3-A94201EF61A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEA17AF9-CC8D-4ED2-96E3-A94201EF61A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEA17AF9-CC8D-4ED2-96E3-A94201EF61A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEA17AF9-CC8D-4ED2-96E3-A94201EF61A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFBED62B-8CC6-4A10-97C3-AD6BBD376B77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFBED62B-8CC6-4A10-97C3-AD6BBD376B77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFBED62B-8CC6-4A10-97C3-AD6BBD376B77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFBED62B-8CC6-4A10-97C3-AD6BBD376B77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{274E29E4-F6A0-4EC9-B810-F35774540DEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{274E29E4-F6A0-4EC9-B810-F35774540DEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{274E29E4-F6A0-4EC9-B810-F35774540DEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{274E29E4-F6A0-4EC9-B810-F35774540DEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{839104EB-F798-4A60-AE9A-27389557A406}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{839104EB-F798-4A60-AE9A-27389557A406}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{839104EB-F798-4A60-AE9A-27389557A406}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{839104EB-F798-4A60-AE9A-27389557A406}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
