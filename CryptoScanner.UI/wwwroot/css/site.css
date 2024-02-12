@@ -19,4 +19,47 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color: yellow;
+}
+
+
+.container {
+    background-color: black;
+    padding: 20px; 
+}
+
+.container h1 {
+    color: yellow;
+}
+
+.navbar {
+    background-color: yellow;
+}
+
+.container1 {
+    background-color: yellow;
+    padding: 20px;
+    justify-content: center;
+    display: flex;
+}
+
+.anotherColor {
+    color:white;
+}
+
+
+.round {
+    border-radius: 10px;
+}
+
+.add-button {
+    
+}
+
+.sort-button {
+
+}
+
+.search-button {
+
 }
