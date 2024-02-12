@@ -15,7 +15,7 @@ namespace CryptoScanner.UI.Pages
         public void OnGet()
         {
             ApiCaller apiCaller = new ApiCaller();
-            apiCaller.MakeCall("test");
+            apiCaller.MakeCall("01coin");
         }
     }
 }
