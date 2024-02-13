@@ -21,7 +21,7 @@ namespace CryptoScanner.Data
             return GetCurrency();
         }
 
-        public CryptoModel GetProductById(int id)
+        public CryptoModel GetCurrencyById(int id)
         {
             return context.Currency.FirstOrDefault(p => p.Id == id)!;
         }
@@ -30,6 +30,11 @@ namespace CryptoScanner.Data
         {
             return context.Currency.ToList();
         }
+        public CryptoModel GetCurrencyByName(string name)
+        {
+            return context.Currency.FirstOrDefault(p => p.Name == name)!;
+        }
+
 
         // Helper function för att sortera currencies
         //public IEnumerable<CryptoModel> SortCurrency(string sortSpecificCurrency)
