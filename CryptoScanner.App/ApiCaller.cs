@@ -30,7 +30,7 @@ namespace CryptoScanner.App
             var result = JsonConvert.DeserializeObject<List<CoinListRoot>>(json);
             if (result != null)
             {
-                CoinListRoot? searchedObject = result.FirstOrDefault(r => r.Name == name);
+                CoinListRoot? searchedObject = result.FirstOrDefault(r => r.Name.ToLower() == name.ToLower());
                 if (searchedObject != null)
                 {
                     return await GetById(searchedObject.Id);
