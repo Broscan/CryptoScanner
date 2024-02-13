@@ -35,7 +35,6 @@ namespace CryptoScanner.Data
             return context.Currency.ToList();
         }
 
-
         // Helper function för att sortera currencies
         //public IEnumerable<CryptoModel> SortCurrency(string sortSpecificCurrency)
         //{
