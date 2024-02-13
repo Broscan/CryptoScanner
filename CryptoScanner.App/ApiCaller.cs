@@ -25,7 +25,7 @@ namespace CryptoScanner.App
                 throw new ArgumentNullException("name");
             }
 
-            var dbTry = repo.GetCoinByName(name);
+            var dbTry = repo.GetCurrencyByName(name);
             if (dbTry != null)
             {
                 return dbTry;

@@ -38,7 +38,7 @@ public class IndexModel : PageModel
         }
         try
         {
-            Currency = await new ApiCaller().MakeCall(CurrencyName);
+            Currency = await new ApiCaller(context).MakeCall(CurrencyName);
 
             // Spara i en session
             HttpContext.Session.SetString("searchbutton", JsonConvert.SerializeObject(Currency));
