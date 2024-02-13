@@ -23,7 +23,7 @@ namespace CryptoScanner.Data
 
         public CryptoModel GetProductById(int id)
         {
-            return context.Currency.FirstOrDefault(p => p.Id == id);
+            return context.Currency.FirstOrDefault(p => p.Id == id)!;
         }
 
         public IEnumerable<CryptoModel> GetCurrency()
