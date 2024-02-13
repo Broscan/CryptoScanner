@@ -31,6 +31,11 @@ namespace CryptoScanner.Data
             return context.Currency.ToList();
         }
 
+        public CryptoModel? GetCoinByName(string name)
+        {
+            return context.Currency.FirstOrDefault(c => c.Name.ToLower() == name.ToLower());
+        }
+
         // Helper function för att sortera currencies
         //public IEnumerable<CryptoModel> SortCurrency(string sortSpecificCurrency)
         //{

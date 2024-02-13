@@ -14,7 +14,7 @@ namespace CryptoScanner.App.ApiModels
     }
     public class CoinRoot
     {
-        public string Id { get; set; }
+        public string? Id { get; set; }
         public string? Name { get; set; }
         [JsonProperty("market_data")]
         public MarketData? MarketData { get; set; }
