@@ -25,14 +25,14 @@ namespace CryptoScanner.Data
         {
             return context.Currency.FirstOrDefault(p => p.Id == id)!;
         }
+        public CryptoModel GetCurrencyByName(string name)
+        {
+            return context.Currency.FirstOrDefault(p => p.Name == name)!;
+        }
 
         public IEnumerable<CryptoModel> GetCurrency()
         {
             return context.Currency.ToList();
-        }
-        public CryptoModel GetCurrencyByName(string name)
-        {
-            return context.Currency.FirstOrDefault(p => p.Name == name)!;
         }
 
 
