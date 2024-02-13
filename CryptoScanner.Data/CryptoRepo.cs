@@ -11,6 +11,7 @@ namespace CryptoScanner.Data
             this.context = context;
         }
 
+
         public IEnumerable<CryptoModel> AddCurrency(CryptoModel currency)
         {
             context.Currency.Add(currency);
