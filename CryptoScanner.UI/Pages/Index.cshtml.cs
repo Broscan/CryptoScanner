@@ -3,6 +3,7 @@ using CryptoScanner.Data;
 using CryptoScanner.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
 namespace CryptoScanner.UI.Pages;
@@ -16,18 +17,20 @@ public class IndexModel : PageModel
     [BindProperty]
     public string? CurrencyName { get; set; }
 
+    public List<CryptoModel> ExampelCurrencies { get; set; }
+
     private readonly AppDbContext context;
 
     public IndexModel(AppDbContext dbContext)
     {
         context = dbContext;
+        ExampelCurrencies = new List<CryptoModel>();
     }
 
 
-    public void OnGet() // Skicka till databasen o spara. Displaya sen i "Your wallet"
+    public async Task OnGetAsync() // Skicka till databasen o spara. Displaya sen i "Your wallet"
     {
-
-
+        ExampelCurrencies = await context.Currency.Where(c => c.Id >= 1 && c.Id <= 7).ToListAsync(); // tog bort tidigare ids
     }
     public async Task<IActionResult> OnPost() // Sök på crypto valutor - skapa en lista av exempel namn sen
     {
@@ -38,7 +41,7 @@ public class IndexModel : PageModel
         }
         try
         {
-            Currency = await new ApiCaller().MakeCall(CurrencyName);
+            Currency = await new ApiCaller(context).MakeCall(CurrencyName);
 
             // Spara i en session
             HttpContext.Session.SetString("searchbutton", JsonConvert.SerializeObject(Currency));
@@ -72,10 +75,12 @@ public class IndexModel : PageModel
             ApiId = currencyFromApi.ApiId,
             Name = currencyFromApi.Name,
             Price = currencyFromApi.Price,
-
         };
 
         cryptoRepo.AddCurrency(currencyToDb);
+
+        await OnGetAsync();
+
         return Page();
     }
 

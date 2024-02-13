@@ -18,6 +18,8 @@ namespace CryptoScanner.App
             Client.BaseAddress = new Uri("https://api.coingecko.com/api/v3/");
         }
 
+
+
         public async Task<CryptoModel> MakeCall(string name)
         {
             if (string.IsNullOrEmpty(name))
