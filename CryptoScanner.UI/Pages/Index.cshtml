@@ -13,23 +13,41 @@
 <div>
     <form method="post">
         <input type="text" asp-for="CurrencyName" placeholder="Currency name" class="round" />
-        <input type="submit" value="Search" class="round search-button" />
+        <input type="submit" value="Search" class="btn btn-light rounded mr-2" />
+    
     </form>
 </div>
 
+@if (Model.Currency != null)
+{
+    <h5 class="h5">Currency Name: </h5>
+    <p class="p">@Model.Currency.Name</p>
+    <br />
+    <h5 class="h5">Market price: </h5>
+    <p class="p">@Model.Currency.Price</p>
+    <br />
+    <h5 class="h5">API Id: </h5>
+    <p class="p">@Model.Currency.ApiId</p>
+
+}
+
+
+
+
 <form method="get">
     <label class="anotherColor" for="sortOrder">Sort Order:</label>
-    <select id="sortOrder" name="sortOrder" class="round">
+    <select id="sortOrder" name="sortOrder" class="round mr-2">
         <option value="asc">Low to High</option>
         <option value="desc">High to Low</option>
     </select>
-    <button type="submit" asp-page-handler="Sort" class="round sort-button">Sort</button>
+    <button type="submit" asp-page-handler="Sort" class="btn btn-warning rounded">Sort</button>
 </form>
 
 <br />
 
 <div>
     <form method="post">
-        <button type="submit" asp-page-handler="AddCurrency" class="round add-button">Add Currency</button>
+        <button type="submit" asp-page-handler="AddCurrency" class="btn btn-primary rounded">Add Currency</button>
+        <input type="hidden" asp-for="Currency" />
     </form>
 </div>
