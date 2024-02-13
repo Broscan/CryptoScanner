@@ -2,3 +2,28 @@
 @model CryptoScanner.UI.Pages.YourWalletModel
 @{
 }
+
+
+<h1>Currency from Database</h1>
+
+@if (Model.Currencies != null && Model.Currencies.Any())
+{
+	@foreach (var crykptocurrencies in Model.Currencies)
+	{
+		<h4 class="h4">Name: @crykptocurrencies.Name</h4>
+
+		<h4 class="h4">Api Id: @crykptocurrencies.ApiId</h4>
+
+		<h4 class="h4">Price: @crykptocurrencies.Price</h4>
+
+		<br />
+		<br />
+
+	
+	}
+
+}
+else
+{
+	<h4 class="h4">No currencies found in the database</h4>
+}
