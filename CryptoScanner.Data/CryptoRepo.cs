@@ -43,6 +43,18 @@ namespace CryptoScanner.Data
 
         }
 
+        public async Task Update(CryptoModel currency)
+        {
+            // Hämta med id som oliver skickar med
+            CryptoModel updatedCurrency = GetCurrencyById(currency.Id);
+
+            // Cryptomodel.price = det oliver skickar med
+            updatedCurrency.Price = currency.Price;
+
+            await context.SaveChangesAsync();
+        }
+
+
         // Helper function för att sortera currencies
         //public IEnumerable<CryptoModel> SortCurrency(string sortSpecificCurrency)
         //{
