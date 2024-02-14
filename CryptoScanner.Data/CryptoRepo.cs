@@ -40,6 +40,14 @@ namespace CryptoScanner.Data
             return context.Currency.ToList();
         }
 
+        public void RemoveById(int id)
+        {
+            CryptoModel currencyToRemove = GetCurrencyById(id);
+
+            context.Currency.Remove(currencyToRemove);
+
+        }
+
         // Helper function för att sortera currencies
         //public IEnumerable<CryptoModel> SortCurrency(string sortSpecificCurrency)
         //{
