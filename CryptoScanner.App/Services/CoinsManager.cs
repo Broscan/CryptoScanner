@@ -57,9 +57,9 @@ namespace CryptoScanner.App.Services
             return repo.GetCurrency().OrderBy(c => c.Price).Take(number).ToList();
         }
 
-        public Task RemoveCoin(int id)
+        public void RemoveCoin(int id)
         {
-
+            repo.RemoveById(id);
         }
 
 
