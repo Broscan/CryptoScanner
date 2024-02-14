@@ -50,7 +50,7 @@ namespace CryptoScanner.Data
         public async Task Update(CryptoModel currency)
         {
             // Hämta med id som oliver skickar med
-            CryptoModel updatedCurrency = GetCurrencyById(currency.Id);
+            CryptoModel updatedCurrency = GetCurrencyByName(currency.Name);
 
             // Cryptomodel.price = det oliver skickar med
             updatedCurrency.Price = currency.Price;
