@@ -35,13 +35,12 @@ namespace CryptoScanner.Data
             return context.Currency.ToList();
         }
 
-        public IEnumerable<CryptoModel> DeleteCurrency(CryptoModel currency)
+        public void RemoveById(int id)
         {
-            context.Currency.Remove(currency);
+            CryptoModel currencyToRemove = GetCurrencyById(id);
 
-            context.SaveChanges();
+            context.Currency.Remove(currencyToRemove);
 
-            return GetCurrency();
         }
 
         // Helper function för att sortera currencies
