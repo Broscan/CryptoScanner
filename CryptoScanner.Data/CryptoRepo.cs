@@ -21,9 +21,13 @@ namespace CryptoScanner.Data
             return GetCurrency();
         }
 
-        public CryptoModel GetProductById(int id)
+        public CryptoModel GetCurrencyById(int id)
         {
-            return context.Currency.FirstOrDefault(p => p.Id == id);
+            return context.Currency.FirstOrDefault(p => p.Id == id)!;
+        }
+        public CryptoModel GetCurrencyByName(string name)
+        {
+            return context.Currency.FirstOrDefault(p => p.Name == name)!;
         }
 
         public CryptoModel GetProductByName(string name)

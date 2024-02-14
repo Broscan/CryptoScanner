@@ -6,15 +6,27 @@
 
 <h1>Currency from Database</h1>
 
+<form method="post">
+	<label class="anotherColor" for="sortOrder">Sort Order:</label>
+	<select id="sortOrder" name="sortOrder" class="round mr-2">
+		<option value="asc">Low to High</option>
+		<option value="desc">High to Low</option>
+	</select>
+	<button type="submit" class="btn btn-warning rounded">Sort</button>
+</form>
+
+<br />
+
+
 @if (Model.Currencies != null && Model.Currencies.Any())
 {
 	@foreach (var crykptocurrencies in Model.Currencies)
 	{
-		<h4 class="h4">Name: @crykptocurrencies.Name</h4>
+		<h4 class="h4">Name: @crykptocurrencies.Name </h4>
 
-		<h4 class="h4">Api Id: @crykptocurrencies.ApiId</h4>
+		<h4 class="h4">Api Id: @crykptocurrencies.ApiId </h4>
 
-		<h4 class="h4">Price: @crykptocurrencies.Price</h4>
+		<h4 class="h4">Price: @crykptocurrencies.Price / sek</h4>
 
 		<br />
 		<br />

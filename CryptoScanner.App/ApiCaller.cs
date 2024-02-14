@@ -8,24 +8,29 @@ namespace CryptoScanner.App
     public class ApiCaller
     {
         internal HttpClient Client { get; set; }
+        private readonly CryptoRepo repo;
         private readonly AppDbContext context;
         public ApiCaller(AppDbContext context)
         {
             this.context = context;
+            repo = new CryptoRepo(context);
             Client = new HttpClient();
             Client.BaseAddress = new Uri("https://api.coingecko.com/api/v3/");
         }
 
+
+
         public async Task<CryptoModel> MakeCall(string name)
         {
-
-            CryptoRepo repo = new(context);
-
-            CryptoModel dbResponse = repo.GetProductByName(name);
-
-            if (dbResponse != null)
+            if (string.IsNullOrEmpty(name))
             {
-                return dbResponse;
+                throw new ArgumentNullException("name");
+            }
+
+            var dbTry = repo.GetCurrencyByName(name);
+            if (dbTry != null)
+            {
+                return dbTry;
             }
 
             HttpResponseMessage response = await Client.GetAsync("coins/list");
@@ -42,7 +47,7 @@ namespace CryptoScanner.App
             if (result != null)
             {
                 CoinListRoot? searchedObject = result.FirstOrDefault(r => r.Name.ToLower() == name.ToLower());
-                if (searchedObject != null)
+                if (searchedObject != null && searchedObject.Id != null)
                 {
                     return await GetById(searchedObject.Id);
                 }
@@ -76,13 +81,14 @@ namespace CryptoScanner.App
             {
                 throw new JsonSerializationException();
             }
-
-            return new CryptoModel()
+            CryptoModel model = new CryptoModel()
             {
                 Name = result.Name,
                 ApiId = result.Id,
                 Price = result.MarketData.CurrentPrice.Sek
             };
+
+            return model;
 
 
         }

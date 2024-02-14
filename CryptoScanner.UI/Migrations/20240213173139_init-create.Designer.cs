@@ -4,6 +4,7 @@ using CryptoScanner.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CryptoScanner.UI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240213173139_init-create")]
+    partial class initcreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,35 +52,35 @@ namespace CryptoScanner.UI.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 3,
+                            Id = 1,
                             ApiId = "bitcoin",
                             Name = "Bitcoin",
                             Price = 514135m
                         },
                         new
                         {
-                            Id = 4,
+                            Id = 2,
                             ApiId = "dogecoin",
                             Name = "Dogecoin",
                             Price = 0.854076m
                         },
                         new
                         {
-                            Id = 5,
+                            Id = 3,
                             ApiId = "tether",
                             Name = "Tether",
                             Price = 10.59m
                         },
                         new
                         {
-                            Id = 6,
+                            Id = 4,
                             ApiId = "solana",
                             Name = "Solana",
                             Price = 1158.27m
                         },
                         new
                         {
-                            Id = 7,
+                            Id = 5,
                             ApiId = "cardano",
                             Name = "Cardano",
                             Price = 5.7m
