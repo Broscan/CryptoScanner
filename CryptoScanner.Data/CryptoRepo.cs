@@ -39,9 +39,9 @@ namespace CryptoScanner.Data
             return context.Currency.ToList();
         }
 
-        public void RemoveById(int id)
+        public void RemoveByName(string name)
         {
-            CryptoModel currencyToRemove = GetCurrencyById(id);
+            CryptoModel currencyToRemove = GetCurrencyByName(name);
 
             context.Currency.Remove(currencyToRemove);
 
