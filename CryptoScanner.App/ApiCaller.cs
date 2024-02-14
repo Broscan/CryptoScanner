@@ -1,4 +1,5 @@
 ﻿using CryptoScanner.App.ApiModels;
+using CryptoScanner.App.Services;
 using CryptoScanner.Data;
 using CryptoScanner.Data.Models;
 using Newtonsoft.Json;
@@ -92,5 +93,17 @@ namespace CryptoScanner.App
 
 
         }
+
+        public async Task<List<CryptoModel>> RefreshStoredCoins()
+        {
+            List<CryptoModel> coinsToRefresh = new();
+            coinsToRefresh = new CoinsManager(context).GetDesc();
+            foreach (var coin in coinsToRefresh)
+            {
+                var updatedCoin = await GetById(coin.ApiId);
+            }
+        }
+
+
     }
 }

@@ -30,6 +30,11 @@ namespace CryptoScanner.Data
             return context.Currency.FirstOrDefault(p => p.Name == name)!;
         }
 
+        public CryptoModel GetProductByName(string name)
+        {
+            return context.Currency.FirstOrDefault(p => p.Name.ToLower() == name.ToLower());
+        }
+
         public IEnumerable<CryptoModel> GetCurrency()
         {
             return context.Currency.ToList();
