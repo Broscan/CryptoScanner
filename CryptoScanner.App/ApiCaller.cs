@@ -98,10 +98,13 @@ namespace CryptoScanner.App
         {
             List<CryptoModel> coinsToRefresh = new();
             coinsToRefresh = new CoinsManager(context).GetDesc();
+            List<CryptoModel> updatedCoins = new();
             foreach (var coin in coinsToRefresh)
             {
                 var updatedCoin = await GetById(coin.ApiId);
+                updatedCoins.Add(updatedCoin);
             }
+            return updatedCoins;
         }
 
 

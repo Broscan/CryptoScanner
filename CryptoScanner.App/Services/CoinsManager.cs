@@ -62,6 +62,15 @@ namespace CryptoScanner.App.Services
             repo.RemoveById(id);
         }
 
+        public async Task UpdatePrice()
+        {
+            List<CryptoModel> coinsToUpdate = new();
+            coinsToUpdate = await new ApiCaller(context).RefreshStoredCoins();
+            foreach (var coin in coinsToUpdate)
+            {
+                await repo.Update(coin);
+            }
+        }
 
     }
 }
