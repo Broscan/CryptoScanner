@@ -1,4 +1,5 @@
 ﻿using CryptoScanner.App.ApiModels;
+using CryptoScanner.Data;
 using CryptoScanner.Data.Models;
 using Newtonsoft.Json;
 
@@ -7,15 +8,25 @@ namespace CryptoScanner.App
     public class ApiCaller
     {
         internal HttpClient Client { get; set; }
-
-        public ApiCaller()
+        private readonly AppDbContext context;
+        public ApiCaller(AppDbContext context)
         {
+            this.context = context;
             Client = new HttpClient();
             Client.BaseAddress = new Uri("https://api.coingecko.com/api/v3/");
         }
 
         public async Task<CryptoModel> MakeCall(string name)
         {
+
+            CryptoRepo repo = new(context);
+
+            CryptoModel dbResponse = repo.GetProductByName(name);
+
+            if (dbResponse != null)
+            {
+                return dbResponse;
+            }
 
             HttpResponseMessage response = await Client.GetAsync("coins/list");
             if (!response.IsSuccessStatusCode)
@@ -30,7 +41,7 @@ namespace CryptoScanner.App
             var result = JsonConvert.DeserializeObject<List<CoinListRoot>>(json);
             if (result != null)
             {
-                CoinListRoot? searchedObject = result.FirstOrDefault(r => r.Name == name);
+                CoinListRoot? searchedObject = result.FirstOrDefault(r => r.Name.ToLower() == name.ToLower());
                 if (searchedObject != null)
                 {
                     return await GetById(searchedObject.Id);
@@ -75,5 +86,7 @@ namespace CryptoScanner.App
 
 
         }
+
+
     }
 }
