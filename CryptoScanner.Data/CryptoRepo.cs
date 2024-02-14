@@ -12,11 +12,15 @@ namespace CryptoScanner.Data
         }
 
 
-        public IEnumerable<CryptoModel> AddCurrency(CryptoModel currency)
+        public async Task<IEnumerable<CryptoModel>> AddCurrency(CryptoModel currency)
         {
-            context.Currency.Add(currency);
+            if (GetCurrencyById(currency.Id) == null)
+            {
+                context.Currency.Add(currency);
 
-            context.SaveChanges();
+                await context.SaveChangesAsync();
+
+            }
 
             return GetCurrency();
         }
@@ -28,11 +32,6 @@ namespace CryptoScanner.Data
         public CryptoModel GetCurrencyByName(string name)
         {
             return context.Currency.FirstOrDefault(p => p.Name == name)!;
-        }
-
-        public CryptoModel GetProductByName(string name)
-        {
-            return context.Currency.FirstOrDefault(p => p.Name.ToLower() == name.ToLower());
         }
 
         public IEnumerable<CryptoModel> GetCurrency()
