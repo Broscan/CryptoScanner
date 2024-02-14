@@ -72,5 +72,9 @@ namespace CryptoScanner.App.Services
             }
         }
 
+        public async Task AddCurrency(CryptoModel model)
+        {
+            await repo.AddCurrency(model);
+        }
     }
 }
