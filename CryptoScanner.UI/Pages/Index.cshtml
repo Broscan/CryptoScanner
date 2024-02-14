@@ -9,6 +9,12 @@
 
 </div>
 
+@foreach (var currency in Model.ExampelCurrencies)
+{
+   <h5 class="h5">Currency Name: @currency.Name </h5>
+    <p class="p">Market price: @currency.Price / sek</p>
+   <br />
+}
 
 <div>
     <form method="post">
@@ -21,29 +27,17 @@
 @if (Model.Currency != null)
 {
     <h5 class="h5">Currency Name: </h5>
-    <p class="p">@Model.Currency.Name</p>
+    <p class="p">@Model.Currency.Name </p>
     <br />
     <h5 class="h5">Market price: </h5>
-    <p class="p">@Model.Currency.Price</p>
+    <p class="p">@Model.Currency.Price </p>
     <br />
     <h5 class="h5">API Id: </h5>
-    <p class="p">@Model.Currency.ApiId</p>
+    <p class="p">@Model.Currency.ApiId / sek</p>
 
 }
 
 
-
-
-<form method="get">
-    <label class="anotherColor" for="sortOrder">Sort Order:</label>
-    <select id="sortOrder" name="sortOrder" class="round mr-2">
-        <option value="asc">Low to High</option>
-        <option value="desc">High to Low</option>
-    </select>
-    <button type="submit" asp-page-handler="Sort" class="btn btn-warning rounded">Sort</button>
-</form>
-
-<br />
 
 <div>
     <form method="post">

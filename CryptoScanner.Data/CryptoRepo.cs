@@ -12,11 +12,15 @@ namespace CryptoScanner.Data
         }
 
 
-        public IEnumerable<CryptoModel> AddCurrency(CryptoModel currency)
+        public async Task<IEnumerable<CryptoModel>> AddCurrency(CryptoModel currency)
         {
-            context.Currency.Add(currency);
+            if (GetCurrencyById(currency.Id) == null)
+            {
+                context.Currency.Add(currency);
 
-            context.SaveChanges();
+                await context.SaveChangesAsync();
+
+            }
 
             return GetCurrency();
         }
@@ -34,6 +38,26 @@ namespace CryptoScanner.Data
         {
             return context.Currency.ToList();
         }
+
+        public void RemoveByName(string name)
+        {
+            CryptoModel currencyToRemove = GetCurrencyByName(name);
+
+            context.Currency.Remove(currencyToRemove);
+
+        }
+
+        public async Task Update(CryptoModel currency)
+        {
+            // Hämta med id som oliver skickar med
+            CryptoModel updatedCurrency = GetCurrencyByName(currency.Name);
+
+            // Cryptomodel.price = det oliver skickar med
+            updatedCurrency.Price = currency.Price;
+
+            await context.SaveChangesAsync();
+        }
+
 
         // Helper function för att sortera currencies
         //public IEnumerable<CryptoModel> SortCurrency(string sortSpecificCurrency)

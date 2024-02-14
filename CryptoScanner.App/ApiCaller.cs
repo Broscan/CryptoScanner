@@ -1,4 +1,5 @@
 ﻿using CryptoScanner.App.ApiModels;
+using CryptoScanner.App.Services;
 using CryptoScanner.Data;
 using CryptoScanner.Data.Models;
 using Newtonsoft.Json;
@@ -18,6 +19,8 @@ namespace CryptoScanner.App
             Client.BaseAddress = new Uri("https://api.coingecko.com/api/v3/");
         }
 
+
+
         public async Task<CryptoModel> MakeCall(string name)
         {
             if (string.IsNullOrEmpty(name))
@@ -25,7 +28,7 @@ namespace CryptoScanner.App
                 throw new ArgumentNullException("name");
             }
 
-            var dbTry = repo.GetCoinByName(name);
+            var dbTry = repo.GetCurrencyByName(name);
             if (dbTry != null)
             {
                 return dbTry;
@@ -90,5 +93,20 @@ namespace CryptoScanner.App
 
 
         }
+
+        public async Task<List<CryptoModel>> RefreshStoredCoins()
+        {
+            List<CryptoModel> coinsToRefresh = new();
+            coinsToRefresh = new CoinsManager(context).GetDesc();
+            List<CryptoModel> updatedCoins = new();
+            foreach (var coin in coinsToRefresh)
+            {
+                var updatedCoin = await GetById(coin.ApiId);
+                updatedCoins.Add(updatedCoin);
+            }
+            return updatedCoins;
+        }
+
+
     }
 }

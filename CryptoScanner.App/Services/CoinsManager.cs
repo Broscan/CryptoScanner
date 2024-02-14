@@ -56,5 +56,25 @@ namespace CryptoScanner.App.Services
 
             return repo.GetCurrency().OrderBy(c => c.Price).Take(number).ToList();
         }
+
+        public void RemoveCoin(int id)
+        {
+            repo.RemoveById(id);
+        }
+
+        public async Task UpdatePrice()
+        {
+            List<CryptoModel> coinsToUpdate = new();
+            coinsToUpdate = await new ApiCaller(context).RefreshStoredCoins();
+            foreach (var coin in coinsToUpdate)
+            {
+                await repo.Update(coin);
+            }
+        }
+
+        public async Task AddCurrency(CryptoModel model)
+        {
+            await repo.AddCurrency(model);
+        }
     }
 }
