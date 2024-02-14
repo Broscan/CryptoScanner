@@ -10,6 +10,10 @@ public class YourWalletModel : PageModel
 	private readonly AppDbContext _dbContext;
 	public List<CryptoModel> Currencies { get; set; } = new List<CryptoModel>();
 
+	public int CurrencyDelete { get; set; }
+
+	public int DeleteCoin { get; set; }
+
 	public YourWalletModel(AppDbContext dbContext)
 	{
 		_dbContext = dbContext;
@@ -18,6 +22,8 @@ public class YourWalletModel : PageModel
 
 	public async Task OnGet()
 	{
+
+
 		//Displaya
 		await DisplayCurrency();
 	}
@@ -34,6 +40,21 @@ public class YourWalletModel : PageModel
 			Currencies = coinsManager.GetAsc();
 		}
 	}
+
+	public async Task OnPostDelete(int currencyDelete)
+	{
+		//var coinDelete = new CoinsManager(_dbContext);
+		//if (currencyDelete > 0)
+		//{
+		//	CurrencyDelete = coinDelete.RemoveCoin(currencyDelete);
+		//}
+
+
+
+
+	}
+
+
 
 	public async Task DisplayCurrency()
 	{
